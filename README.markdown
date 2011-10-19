@@ -3,13 +3,13 @@ handlino-stickies
 This is a modified version from http://software.pmade.com/stickies
 We use jquery to let it be unobtrusive.
  
-= Stickies
+# Stickies
 
 Stickies is a plugin for Ruby on Rails that provides some easy to use yet
 powerful features for displaying status messages.  It's a replacement for the
 traditional use of placing such messages in the flash.
 
-== Examples
+## Examples
 
 The following line goes in your layout, where you normally render messages
 that are in the flash:
@@ -24,7 +24,7 @@ views for adding messages to the message collection:
  notice_stickie("Account activated")
  debug_stickie("This only works when RAILS_ENV is development")
 
-== Features
+## Features
 
 * Displayed messages have a close link to remove them from the web page
 * Messages default to only being displayed once (they disappear on the next page load)
@@ -39,3 +39,32 @@ hours:
    :name     => :browser_warning,
    :seen_in  => 24.hours,
  })
+
+## Installation
+
+**Rails >= 3.1.0**
+
+Gemfile
+
+    gem "stickies", :git => "git://github.com/techbang/stickies.git"
+
+assets/stylesheets/application.css
+    
+    //= require stickies
+
+assets/javascripts/application.js
+
+    //= require stickies
+
+**Rails < 3.1.0**
+
+Gemfile
+
+    gem "stickies", :git => "git://github.com/techbang/stickies.git"
+
+$ rails g stickies
+
+This will create:
+
+     public/stylesheets/stickies.css
+     public/javascripts/stickies.js

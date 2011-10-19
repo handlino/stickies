@@ -22,14 +22,11 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 ################################################################################
-class StickiesGenerator < Rails::Generator::Base
-  ################################################################################
-  def manifest
-    record do |m|
-      m.template('stickies.css', 'public/stylesheets/stickies.css')
-      m.template('stickies.js', 'public/javascripts/stickies.js')
-    end
+class StickiesGenerator < Rails::Generators::Base
+  source_root File.expand_path('../../../../vendor/assets/', __FILE__)
+  def copy_stylesheets
+    copy_file('stylesheets/stickies.css', 'public/stylesheets/stickies.css')
+    copy_file('javascripts/stickies.js', 'public/javascripts/stickies.js')
   end
-
 end
 ################################################################################

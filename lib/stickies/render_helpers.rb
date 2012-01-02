@@ -10,10 +10,10 @@
 # distribute, sublicense, and/or sell copies of the Software, and to
 # permit persons to whom the Software is furnished to do so, subject to
 # the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be
 # included in all copies or substantial portions of the Software.
-# 
+#
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 # EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 # MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -47,7 +47,7 @@ module Stickies
       }.update(options)
 
       html = %Q(<div id="#{configuration[:id]}">)
-      
+
       Stickies::Messages.fetch(session, configuration[:key]) do |messages|
         html << render_stickies_separate(messages, configuration)
         messages.flash
@@ -75,7 +75,7 @@ module Stickies
       messages.each do |m|
         html << %Q(<div class="#{m.level}_stickie" id="stickie_#{m.options[:name]}">)
         html << render_stickie_close_area(m, options) if options[:close_position] == :before
-        html << m.message
+        html << m.message.force_encoding("UTF-8")
         html << render_stickie_close_area(m, options) if options[:close_position] != :before
         html << %Q(<br style="clear:all;"/>)
         html << %Q(</div>)

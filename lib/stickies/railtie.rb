@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Stickies
   class Railtie < ::Rails::Railtie
     initializer "stickies.controller_actions" do

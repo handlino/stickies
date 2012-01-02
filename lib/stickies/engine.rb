@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Stickies
   class Engine < ::Rails::Engine
     initializer "stickies.controller_actions" do

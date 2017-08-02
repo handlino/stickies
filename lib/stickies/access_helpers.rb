@@ -45,6 +45,12 @@ module Stickies
     end
 
     ################################################################################
+    # Add a notify message.  See Stickies::Messages#add for full details.
+    def notify_stickie (message, options={})
+      Stickies::Messages.notify(session, message, options)
+    end
+
+    ################################################################################
     # Add a debug message.  See Stickies::Messages#add for full details.
     def debug_stickie (message, options={})
       Stickies::Messages.debug(session, message, options)

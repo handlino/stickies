@@ -39,7 +39,7 @@ module Stickies
     # The defaults are pretty decent.
     def render_stickies (options={})
       configuration = {
-        :close          => 'Close',
+        :close          => '╳',
         :close_position => :before,
         :id             => 'stickies',
         :key            => :stickies,

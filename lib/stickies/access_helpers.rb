@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ################################################################################
 #
 # Copyright (C) 2007 pmade inc. (Peter Jones pjones@pmade.com)
@@ -41,6 +42,12 @@ module Stickies
     # Add a notice message.  See Stickies::Messages#add for full details.
     def notice_stickie (message, options={})
       Stickies::Messages.notice(session, message, options)
+    end
+
+    ################################################################################
+    # Add a notify message.  See Stickies::Messages#add for full details.
+    def notify_stickie (message, options={})
+      Stickies::Messages.notify(session, message, options)
     end
 
     ################################################################################

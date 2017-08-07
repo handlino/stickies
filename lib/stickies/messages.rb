@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ################################################################################
 #
 # Copyright (C) 2007 pmade inc. (Peter Jones pjones@pmade.com)
@@ -50,6 +51,14 @@ module Stickies
     # session object. See Stickies::Messages#add for more details.
     def self.notice (storage, message, options={})
       self.add(storage, :notice, message, options)
+    end
+
+    ################################################################################
+    # Add a notify message to the current collection of messages.  Storage
+    # should be a hash where all the messages can be stored, such as the Rails
+    # session object. See Stickies::Messages#add for more details.
+    def self.notify (storage, message, options={})
+      self.add(storage, :notify, message, options)
     end
 
     ################################################################################
@@ -178,7 +187,7 @@ module Stickies
     ################################################################################
     # Iterate over all the messages in the given order.  If you are using
     # custom message levels, you'll need to add them to the order array.
-    def each (order=[:debug, :error, :warning, :notice], &block)
+    def each (order=[:debug, :error, :warning, :notice, :notify], &block)
       order.each {|o| m = @messages[o] and m.each(&block)}
     end
 
